@@ -5,6 +5,13 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+const mongoose = require('mongoose');
+
+/*mongoose.connect('mongodb://node-shop:'+ process.env.MONGO_ATLAS_PW +'@node-rest-shop-shard-00-00-pck5b.mongodb.net:27017,node-rest-shop-shard-00-01-pck5b.mongodb.net:27017,node-rest-shop-shard-00-02-pck5b.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-shop-shard-0&authSource=admin&retryWrites=true:',{
+    useMongoClient: true
+});*/
+
+mongoose.connect('mongodb://localhost/shop');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
