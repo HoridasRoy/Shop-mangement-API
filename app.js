@@ -13,6 +13,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/shop');
 
+mongoose.Promise = global.Promise;
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
